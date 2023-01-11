@@ -1,2 +1,3 @@
-# An-optimization-model-for-power-transformer-maintenance
-Code for the paper An optimization model for power transformer maintenance (unpublished)
+# An optimization model for power transformer maintenance
+
+This repository contains the code used in the unpublished paper An optimization model for power transformer maintenance. Requires PySCIPOpt.
