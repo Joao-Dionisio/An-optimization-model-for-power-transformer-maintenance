@@ -1,0 +1,2 @@
+N Years | Objective Value | Time | Gap | Infeasible 
+1  |  37.769     | 0.456 | 0.005 | 0

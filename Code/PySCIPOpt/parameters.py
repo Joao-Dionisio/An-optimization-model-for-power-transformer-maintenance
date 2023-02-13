@@ -1,15 +1,17 @@
-Tmax  = 10
+Tmax  = 20
 ttmax = Tmax*24
-Price  = 1 # not used for load allocation
+Price  = 1 
 Qmax  = 2 
 load_effect  = 24/(ttmax/Tmax)
-d_prime = 0.95**(1/(ttmax/Tmax)) # this results in a degradation to 60% after 10y #0.999 
+d_prime = 0.95**(1/(ttmax/Tmax)) # this results in a degradation to 60% after 10y 
 
 max_cooling_system_cooling  = 10 
 max_oil_cooling  = 5 
 
 A  = 60 
 B  = 0.5 
+
+interest_rate = 1.00
 
 hs  = {
 0:	0,
@@ -40,14 +42,12 @@ class Component:
         self.cost = cost*ttmax/Tmax
         self.maintenance_duration = int(maintenance_duration*(ttmax/Tmax)*0)#maintenance_duration*0
 
-
 OPS             = Component("OPS", 35, 1.65, 3)#/(12*24)) # 840, 40, 3)
 Cooling_System  = Component("Cooling_System", 25, 0.85, 2)#/(12*24)) # 600, 20, 2)
 Oil             = Component("Oil", 12, 0.2, 1)#/(12*24)) # 288, 4, 1)
 Winding         = Component("Winding", 50, 12.5, 4)#/(12*24))#1200, 300, 4)
 
 components = [Oil, Cooling_System, OPS, Winding]
-
 
 
 demand = { # Using representative day for the year
@@ -76,3 +76,8 @@ demand = { # Using representative day for the year
     22:	1.67,
     23:	1.42 
 }
+
+default_params = [Price, Qmax, load_effect, d_prime, max_cooling_system_cooling, max_oil_cooling, A, B, demand]
+for component in components:
+    default_params.append(component.cost)
+    default_params.append(component.RULmax)
