@@ -1,13 +1,6 @@
 # Cleaning up SCIP results
 
 def remove_headers(file):
-#    with open(file, 'r') as f:
-#        filedata = f.read()
-#    filedata = filedata.replace("Cannot set feasibility tolerance to small value 1e-12 without GMP - using 1e-10.", '')
-#    with open(file, 'w') as f:
-#        f.write(filedata)
-#    f.close()
-
     with open(file, "r") as f:
         lines = f.readlines()
     with open(file, "w") as f:
@@ -18,12 +11,6 @@ def remove_headers(file):
     return
 
 def remove_presolve(file):
-#    with open(file, 'r') as f:
-#        filedata = f.read()
-#    filedata = filedata.replace("Cannot set feasibility tolerance to small value 1e-12 without GMP - using 1e-10.", '')
-#    with open(file, 'w') as f:
-#        f.write(filedata)
-#    f.close()
 
     with open(file, "r") as f:
         lines = f.readlines()

@@ -36,7 +36,7 @@ def create_model(n_years = Tmax, new_params = None, single_model = False, heuris
     #### Variable Declaration
     q = {}
     for i in range(1,ttmax+1):
-        q[i] = model.addVar("q[%i]"%(i),ub=Qmax, lb=0) # Qmax probably needs to be lower, like 1.5. And the effects of surpassing rated load more severe.
+        q[i] = model.addVar("q[%i]"%(i),ub=Qmax, lb=0) 
 
     real_temp = {}
     for i in range(1,ttmax+1):
@@ -77,7 +77,6 @@ def create_model(n_years = Tmax, new_params = None, single_model = False, heuris
     ###############
     
     #### RUL Constraints
-    
     for k in components:
         model.addCons(rul[k.name,0] == k.RULmax)
 
@@ -137,7 +136,6 @@ def create_model(n_years = Tmax, new_params = None, single_model = False, heuris
             for k in components:
                 if t != float("inf"):
                     model.addCons(chi["Winding",t] <= chi[k.name,t])
-
           
     ops_index = 0
     #### Moisture

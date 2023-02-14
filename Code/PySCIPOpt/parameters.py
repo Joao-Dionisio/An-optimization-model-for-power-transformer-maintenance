@@ -11,22 +11,7 @@ max_oil_cooling  = 5
 A  = 60 
 B  = 0.5 
 
-interest_rate = 1.00
-
-hs  = {
-0:	0,
-1:	80,
-2:	86,
-3:	92,
-4:	98,
-5:	104,
-6:	110,
-7:	116,
-8:	122,
-9:	128,
-10:	134,
-11:	140
-} 
+hs  = {11:	140} 
 
 class Component:
     def __init__(self, name, RULmax, cost, maintenance_duration):
@@ -40,15 +25,13 @@ class Component:
         self.name = name
         self.RULmax = RULmax*ttmax/Tmax
         self.cost = cost*ttmax/Tmax
-        self.maintenance_duration = int(maintenance_duration*(ttmax/Tmax)*0)#maintenance_duration*0
 
-OPS             = Component("OPS", 35, 1.65, 3)#/(12*24)) # 840, 40, 3)
-Cooling_System  = Component("Cooling_System", 25, 0.85, 2)#/(12*24)) # 600, 20, 2)
-Oil             = Component("Oil", 12, 0.2, 1)#/(12*24)) # 288, 4, 1)
-Winding         = Component("Winding", 50, 12.5, 4)#/(12*24))#1200, 300, 4)
+OPS             = Component("OPS", 35, 1.65, 3)
+Cooling_System  = Component("Cooling_System", 25, 0.85, 2)
+Oil             = Component("Oil", 12, 0.2, 1)
+Winding         = Component("Winding", 50, 12.5, 4)
 
 components = [Oil, Cooling_System, OPS, Winding]
-
 
 demand = { # Using representative day for the year
     0:	1.05,
